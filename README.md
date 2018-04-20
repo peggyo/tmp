@@ -15,7 +15,7 @@ Getting ready to deploy your assignment:
 
 1. Start your Cmdr Command Line tool.
 2. Move to your working directory where your assignment is located:
-  - *C:\local$* `cd assignment-X`      // often you may be nested several levels, such as C:\users\uname\cscie31\assignmentX
+  - *C:\local$*`cd assignment-X`      // often you may be nested several levels, such as C:\users\uname\cscie31\assignmentX
 
 3. Check your files:
 
@@ -25,9 +25,9 @@ Getting ready to deploy your assignment:
 
 4. Check in your code:  In Cmdr, in the directory for your application:
 
-- Run git status:                           `C:\local$ git status`
-- Based on status, add files to your repo:  `C:\local$ git add --all` // adds all changes reported by git status. (You can add/remove files selectively if you prefer)
-- Commit the changes you added:             `C:\local$ git commit -m "Make a comment about the changes"` (You can also do this for individual files if you prefer)
-- Send changes files to your github repo:   `C:\local$ git push origin master` // push the changes to your github repository.
+- Run git status:                           *C:\local$*`git status`
+- Based on status, add files to your repo:  *C:\local$*`git add --all` // adds all changes reported by git status. (You can add/remove files selectively if you prefer)
+- Commit the changes you added:             *C:\local$*`git commit -m "Make a comment about the changes"` (You can also do this for individual files if you prefer)
+- Send changes files to your github repo:   *C:\local$*`git push origin master` // push the changes to your github repository.
 
 5. Now you are ready to pull your project to your Digital Ocean droplet.
