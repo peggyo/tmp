@@ -15,7 +15,7 @@ __Getting ready to deploy your assignment:__
 
 1. Start your Cmdr Command Line tool.
 2. Move to your working directory where your assignment is located:
-  - *C:\local$*`cd assignment-X`      // often you may be nested several levels, such as C:\users\uname\cscie31\assignmentX
+  - *C:\local$*`cd assignment-X`      // you may be nested several levels, such as C:\users\uname\cscie31\assignmentX
 
 3. Check your files:
 
