@@ -2,16 +2,16 @@
 
 This document is meant to be a checklist helpful to students when they are ready to deploy their assignments to Digital Ocean.
 
-Convention:
+__Convention:__
   * *C:\local$* is used to represent the Cmdr Command Line '$' prompt for the LOCAL development machine.
   * *X:\ocean$* is used to represent the Cmdr Command Line '$' prompt when ssh'd into the Digital Ocean droplet.
 
-Assumptions: Student has:
+__Assumptions: Student has:__
   - Cloned the assignment from the git repo provided, and created an app to deploy
   - Their own github account
   - A Digital Ocean droplet
 
-Getting ready to deploy your assignment:
+__Getting ready to deploy your assignment:__
 
 1. Start your Cmdr Command Line tool.
 2. Move to your working directory where your assignment is located:
