@@ -1,4 +1,4 @@
-#Assignment checklist:
+# Assignment checklist:
 
 This document is meant to be a checklist helpful to students when they are ready to deploy their assignments to Diginal Ocean.
 
