@@ -1,6 +1,6 @@
 # Assignment checklist:
 
-This document is meant to be a checklist helpful to students when they are ready to deploy their assignments to Diginal Ocean.
+This document is meant to be a checklist helpful to students when they are ready to deploy their assignments to Digital Ocean.
 
 Convention:
   * *C:\local$* is used to represent the Cmdr Command Line '$' prompt for the LOCAL development machine.
