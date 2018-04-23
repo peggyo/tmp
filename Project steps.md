@@ -5,9 +5,9 @@ This document is meant to be a checklist helpful to students when they are ready
 __Convention:__
   * *C:\local$* is used to represent the Cmdr Command Line '$' prompt for the LOCAL development machine.
   * *X:\ocean#* is used to represent the Cmdr Command Line prompt when ssh'd into the Digital Ocean droplet.
-  * *<IP>* represents a numeric IP address. (Example, the IP address of localhost is numeric IP *127.0.0.1*)
-  * *<port>* represents a numeric port number. (Example, you may use port number *8080*)
-  * So the following: *<IP>:<port>* might represent *127.0.0.1:8080*
+  * *[IP]* represents a numeric IP address. (Example, the IP address of localhost is numeric IP *127.0.0.1*)
+  * *[port]* represents a numeric port number. (Example, you may use port number *8080*)
+  * So the following: *[IP]:[port]* might represent *127.0.0.1:8080*
 
 __Assumptions: the student already has:__
   - Cloned the assignment from the git repo provided, and created an app to deploy
@@ -40,7 +40,7 @@ __Assumptions: the student already has:__
 
 1. From the Cmdr Command Line tool *ssh* into Digital Ocean using your droplet's IP address.
 
--*C:\local$*`ssh root@<IP>`
+-*C:\local$*`ssh root@[IP]`
 
 2. Clone your assignment repository. Go to Github and select the repository to clone. From the 'Clone or Download' button, copy the SSH Setting. Example:
 
@@ -72,7 +72,7 @@ From here, how you complete setting up and starting your project will vary depen
 -*D:\ocean#*`nohup node appserver &`    // Now you and your grader can access the server at any time, without using Cmdr.
 
 // Visit your web server through a browser:
-http://\<IP\>:\<port\>
+http://[IP]:[port]
 
 
 
