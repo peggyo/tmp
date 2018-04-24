@@ -1,10 +1,10 @@
-# Assignment checklist:
+# Assignment Deployment Checklist:
 
 This document is meant to be a checklist helpful to students when they are ready to deploy their assignments to Digital Ocean.
 It covers and consolidates the basics of deployment as outlined in the course. If your application includes variations or additions 
-your procedures may vary.
+your procedures may involve different steps.
 
-__Convention:__
+__Conventions in this document:__
   * *C:\local$* is used to represent the Cmdr Command Line '$' prompt for the LOCAL development machine.
   * *X:\ocean#* is used to represent the Cmdr Command Line prompt when ssh'd into the Digital Ocean droplet.
   * *[IP]* represents a numeric IP address. (Example, the IP address of localhost is numeric IP *127.0.0.1*)
@@ -21,7 +21,7 @@ __Assumptions: the student already has:__
 
 1. Start your Cmdr Command Line tool.
 
-2. Move to your working directory where your assignment is located:
+2. In Command Line, change to the working directory where your assignment is located:
   - *C:\local$*`cd assignment-X`      // you may be nested several levels, such as C:\users\uname\cscie31\assignmentX
 
 3. Double check your files:
@@ -44,19 +44,19 @@ __Assumptions: the student already has:__
 
 1. From the Cmdr Command Line tool *ssh* into Digital Ocean using your droplet's IP address.
 
--*C:\local$*`ssh root@[IP]`
+* *C:\local$*`ssh root@[IP]`
 
 2. Clone your assignment repository. Go to Github and select the repository to clone. From the 'Clone or Download' button, copy the SSH Setting. Example:
 
--*X:\ocean#*`git@github.com:HarvardDCENode/assignment-X-name.git`
+* *X:\ocean#*`git@github.com:HarvardDCENode/assignment-X-name.git`
 
 3. Open the port you use for the assignment so the server will allow access. If you used that port number for a previous assignment this may not need to be not be repeated. If you have another assignment app that is still listening on that port, you may need to open another port.
 
--*X:\ocean#*`sudo ufw allow 8080`
+- *X:\ocean#*`sudo ufw allow 8080`
 
 4. Clone your github repository to your Digital Ocean droplet which will copy your files from github to your droplet. ?????????????????????????ADD HOW TO GET CLONE STRING?
 
--*X:\ocean#*`git clone https://github.com/assignment-X-description-yourname.git`
+- *X:\ocean#*`git clone https://github.com/assignment-X-description-yourname.git`
 
 5. Navigate to your assignment directory:
 
