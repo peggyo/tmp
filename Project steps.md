@@ -46,7 +46,7 @@ __Assumptions: the student already has:__
 
 ## DEPLOYMENT STEPS: Deploying your assignment to Digital Ocean:
 
-1. From the Cmdr Command Line tool ** *ssh* ** into Digital Ocean using your droplet's IP address.
+1. From the Cmdr Command Line tool ***ssh*** into Digital Ocean using your droplet's IP address.
 
 * *C:\local$*`ssh root@[IP]`
 
