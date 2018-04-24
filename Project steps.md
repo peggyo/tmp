@@ -1,8 +1,8 @@
 # Assignment Deployment Checklist:
 
 This document is meant to be a checklist helpful to students when they are ready to deploy their assignments to Digital Ocean.
-It covers and consolidates the basics of deployment as outlined in the course. If your application includes variations or additions 
-your procedures may involve different steps.
+It covers and consolidates the basics of deployment for typical projects required in the course. If your application includes variations or 
+additions your procedures may involve different steps.
 
 __Conventions in this document:__
   * *C:\local$* is used to represent the Cmdr Command Line '$' prompt for the LOCAL development machine.
@@ -29,14 +29,18 @@ __Assumptions: the student already has:__
 - Have you updated your project Readme file?
 - Is your package.json file up to date?           // If package.json has not been discussed in lectures, skip this check - it may not apply.
 - Do you have a .gitignore file? Is it correct?   // To exclude some files from your git repository. If not yet discussed in lecture, skip this or ask TA.
-- Have you checked in your files? Check In is outlined in the next step.
+- Have you checked in your files? **Check In** is outlined in the next step.
 
 4. Check In your code to Github:  In Cmdr, in the directory for your application:
 
-- Run git status:                           *C:\local$*`git status`
-- Based on status, add files to your repo:  *C:\local$*`git add --all`  // adds all changes reported by git status. (You can add/remove files selectively if you prefer)
-- Commit the changes you added:             *C:\local$*`git commit -m "Make a comment about the changes"` //(You can also do this for individual files if you prefer)
-- Send changes files to your github repo:   *C:\local$*`git push origin master` // push the changes to your github repository.
+- Run git status:                           
+    - *C:\local$*`git status`
+- Based on status, add files to your repo:  
+    - *C:\local$*`git add --all`  // adds all changes reported by git status. (You can add/remove files selectively if you prefer)
+- Commit the changes you added:             
+    - *C:\local$*`git commit -m "Make a comment about the changes"` //(You can also do this for individual files if you prefer)
+- Send changes files to your github repo:   
+    - *C:\local$*`git push origin master` // push the changes to your github repository.
 
 5. Now you are ready to pull your project to your Digital Ocean droplet.
 
