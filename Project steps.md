@@ -39,14 +39,14 @@ __Assumptions: the student already has:__
     - *C:\local$*`git add --all`  // adds all changes reported by git status. (You can add/remove files selectively if you prefer)
 - Commit the changes you added:             
     - *C:\local$*`git commit -m "Make a comment about the changes"` //(You can also do this for individual files if you prefer)
-- Send changes files to your github repo:   
-    - *C:\local$*`git push origin master` // push the changes to your github repository.
+- Send your sources to your github repository:    
+    - *C:\local$*`git push origin master` // push the changes to github.
 
 5. Now you are ready to pull your project to your Digital Ocean droplet.
 
 ## DEPLOYMENT STEPS: Deploying your assignment to Digital Ocean:
 
-1. From the Cmdr Command Line tool *ssh* into Digital Ocean using your droplet's IP address.
+1. From the Cmdr Command Line tool ** *ssh* ** into Digital Ocean using your droplet's IP address.
 
 * *C:\local$*`ssh root@[IP]`
 
