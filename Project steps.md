@@ -63,11 +63,12 @@ __Assumptions: the student already has:__
 
 4. Navigate to your assignment directory:
 
-- *DO#*`cd assignment-X-description-yourname`  // where assignment-X... is the name of your folder.
+- *DO#*`cd assignment-X-description-yourname`  // where assignment-X-description-yourname is the name of your project folder.
 
 ## Starting your Application:
 
-From here, how you complete setting up and starting your project will vary depending on how far you are in the course.
+From here, how you complete setting up and starting your project will vary depending on how far you are in the course. 
+Unless noted, these steps are executed in the application's root directory, which you navigated to in step #4.
 
 ### For your introductory Node server 
 
