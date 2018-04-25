@@ -18,7 +18,7 @@ __Assumptions: the student already has:__
   - Followed the steps for setting up the SSH keys between github and the Digital Ocean server as noted in the course module.
   - Cloned the assignment to their local machine from the git repo provided, and created an app to deploy
   
-  *** A Note:*** You do not have to wait until your assignment is 100% complete to go ahead and deploy it. When you have a good start on your web server, with some of the functionality running successfully on localhost, you may want to try to deploy. If you run into a deployment problem, you will have time to find a solution to that while you are still enhancing your app on your local machine. Documentation, web searches, and Piazza posts may help you solve a deployment problem. This may let you to avoid the stress of trying to solve a deployment problem at the last minute when the project is due. It is possible something may come up later, but trying it out earlier often flushes out problems you hadn't thought about. **The steps to follow to re-deploy are documented toward the end of this check list.**
+  ***A Note:*** You do not have to wait until your assignment is 100% complete to go ahead and deploy it. When you have a good start on your web server, with some of the functionality running successfully on localhost, you may want to try to deploy. If you run into a deployment problem, you will have time to find a solution to that while you are still enhancing your app on your local machine. Documentation, web searches, and Piazza posts may help you solve a deployment problem. This may let you to avoid the stress of trying to solve a deployment problem at the last minute when the project is due. It is possible something may come up later, but trying it out earlier often flushes out problems you hadn't thought about. **The steps to follow to re-deploy are documented toward the end of this check list.**
 
 ## BEFORE DEPLOYING: Getting ready to deploy your assignment:
 
@@ -104,21 +104,22 @@ Follow the deployment steps as outlined above through Step #5, installing your N
 
 It is not much more complicated to set up this project, but some confusion can arise.
 
-    - You will usually not want to expose your database username and password publicly in your github repository, so take steps in the early part of the process to prevent that. Hint: `.gitignore`, `.env` file. 
+  - You will usually not want to expose your database username and password publicly in your github repository, so take steps in the early part of the process to prevent that. Hint: `.gitignore`, `.env` file. 
 
-    - Mongoose and dotenv are NPM modules, and are handled the same way you dealt with others. Hint: `npm install`. 
+  - Mongoose and dotenv are NPM modules, and are handled the same way you dealt with others. Hint: `npm install`. 
 
-    - Your database is in the 'cloud'. It is not necessary to install any of the database client side software tools (Compass, the MongoDB shell) on Digital Ocean. Mongoose is going to handle the database interaction from DO, the same way that it does from your local development project. If you want to create a new database for 'production' purposes, you can set all of that up, and initialize it with data, from your local machine. You will can modify your connection string to connect to the production database, but you can try that from localhost before you deploy your code.
+  - Your database is in the 'cloud'. It is not necessary to install any of the database client side software tools (Compass, the MongoDB shell) on Digital Ocean. Mongoose is going to handle the database interaction from DO, the same way that it does from your local development project. If you want to create a new database for 'production' purposes, you can set all of that up, and initialize it with data, from your local machine. You can modify your connection string to connect to the production database, but you can try that from localhost before you deploy the change.
 
-    - Your IP address for CO must be whitelisted. Do this in MongoDB Atlas, signed into your Admin account. Sometimes people had situations where their IP address varied, often from mobile environments. In those cases they because they had non-sensitive data for course work, they used the 'Allow Access From Anywhere' button. 
+  - Your IP address for DO must be whitelisted. Do this in MongoDB Atlas, signed into your Admin account. Sometimes people had situations where their IP address varied, often from mobile environments. In those cases because they had non-sensitive data for course work, they used the 'Allow Access From Anywhere' button. (A change to the IP address is more often a problem during development on your local machine.)
+  
 
 Follow the steps as outlined for other projects, but do not start your app server yet. Then:
 
 6. Create a .env file to use for your db credentials. In your Cmdr shell, use the editor Nano:
 
-- *DO#*`nano .env` // brings up the nano code editor
+- *DO#*`nano .env` // brings up the nano code editor to create (or edit) a file named *.env*
  
-- Type in the same lines as you have in your local .env file, with *your* values for username and passworX:
+- Type in the same lines as you have in your local .env file, with *your* values for username and password:
 ```
 DB_USER=username
 DB_PWD=password
@@ -133,30 +134,30 @@ Start your server as before:
 
 There are a number of ways that this can be implemented, so it is not fully addressed here. Here is one option:
 
-    - Your client side REST API test still requires the web server app where the API resides to be running, so deploy that in the same way as described when using MongoDB.
-    - The client HTML and JS files used for your tests can be placed under the app server's Public directory.
-    - Access the Client side tests via a browser with a path to the HTML test file by typing it into the Browser address, or adding a link in your Web server app's page. For example:
-            Example URL:
-                http://[DO IP]:[port]/TestAPI.HTML
-                
-    Some students opt for more separation from their server app. Some incorportated the REST API into their existing server app. Deployment steps may vary, but by this stage you've had practice.
+  - Your client side REST API test still requires the web server app where the API resides to be running, so deploy that in the same way as described when using MongoDB.
+  - The client HTML and JS files used for your tests can be placed under the app server's Public directory.
+  - Access the Client side tests via a browser with a path to the HTML test file by typing it into the Browser address, or adding a link in your Web server app's page. For example:
+          Example URL:
+              http://[DO IP]:[port]/TestAPI.HTML
+              
+Some students opt for more separation from their server app. Some incorportated the REST API into their existing server app. Deployment steps may vary, but by this stage you've had practice.
                     
 
 ## Trouble Shooting
 
-If you have errors when you deploy, here are some things to check. Sometimes it is easy from the error message to figure out what went wrong, but some can be misleading.
+If you have errors when you deploy, some things to check. Sometimes it is easy from the error message to figure out what went wrong, but some error messages can be misleading.
 
 Based on issues raised in the Piazza forums, one of the most common problems is a port conflict. 
 
-    You can use the following commands to see which processes are running on your droplet:
+  - You can use the following commands to see which processes are running on your droplet:
     - *DO#*`ps aux | grep node`   // shows a list of processes running with node. 
         This will show you if you are running any servers that use node. The first number is the PID. ***If the process is yours and HAS ALREADY BEEN GRADED*** you can kill it:
         - DO#*`kill XXXX`  // where XXXX is the PID (process id) number
 
-    This command will tell you if a port is in use. If you find the port is busy, open and use a different port.
+  - This command will tell you if a port is in use. If you find the port is busy, open and use a different port.
     - *DO#*`sudo netstat -nlp | grep :8080`   // Shows if a process is running on port 8080. Substitute the port you want to use, and you can see if it is already busy.
     
-    If you must use a different port, open the port as described in "DEPLOYMENT STEPS" #3, above, and change the port in your code, too.
+  - If you must use a different port, open the port as described in "DEPLOYMENT STEPS" #3, above, and change the port in your code, too.
     
 Other problems include forgetting to install your dependencies, and when using MongoDB, forgetting to set up your .env file on DO and/or whitelist the DO IP. Make use of the debugging tools taught in the lectures and sections, and use Piazza as a helpful resource.
 
