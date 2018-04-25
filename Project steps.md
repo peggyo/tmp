@@ -18,7 +18,7 @@ __Assumptions: the student already has:__
   - Followed the steps for setting up the SSH keys between github and the Digital Ocean server as noted in the course module.
   - Cloned the assignment to their local machine from the git repo provided, and created an app to deploy
   
-  ***A Note:*** You do not have to wait until your assignment is 100% complete to go ahead and deploy it. When you have a good start on your web server, with some of the functionality running successfully on localhost, you may want to try to deploy. If you run into a deployment problem, you will have time to find a solution to that while you are still enhancing your app on your local machine. Documentation, web searches, and Piazza posts may help you solve a deployment problem. This may let you to avoid the stress of trying to solve a deployment problem at the last minute when the project is due. It is possible something may come up later, but trying it out earlier often flushes out problems you hadn't thought about. **The steps to follow to re-deploy are documented toward the end of this check list.**
+  ***A Note:*** You do not have to wait until your assignment is 100% complete to go ahead and deploy it. When you have a good start on your web server, with some of the functionality running successfully on localhost, you may want to try to deploy. If you run into a deployment problem, you will have time to find a solution to that while you are still enhancing your app on your local machine. Documentation, web searches, and Piazza posts may help you solve a deployment problem. You may avoid the stress of trying to solve a deployment problem at the last minute when the project is due. It is possible something may come up later, but trying it out earlier can flush out problems you hadn't thought about. **The steps to follow to re-deploy are documented toward the end of this check list.**
 
 ## BEFORE DEPLOYING: Getting ready to deploy your assignment:
 
@@ -30,7 +30,7 @@ __Assumptions: the student already has:__
 3. Double check your files:
 
 - Have you updated your project Readme file?
-- Is your package.json file up to date?           // If package.json has not been discussed in lectures, skip this check - it may not apply.
+- Is your package.json file up to date?           // If package.json has not been yet discussed in lectures, skip this check - it may not apply.
 - Do you have a .gitignore file? Is it correct?   // To exclude files from your git repository. If not yet mentioned in lecture, skip this or double check docs or on Piazza
 - Have you checked in your files? Simple **Check In** example steps are outlined in the next step.
 
@@ -57,9 +57,9 @@ __Assumptions: the student already has:__
 
 * *DO#*`git clone git@github.com:HarvardDCENode/assignment-X-description-yourname.git`
 
-3. Open the port you use for the assignment so the server will allow access. (Note: If you have previously opened this port you may not need to repeat this step. If you have another assignment app that is still listening on that port, you must either stop that app, or open a different port number. If that app is not yet graded, change your app to use a different port, and open that new port.)
+3. Open the port you use for the assignment so the DO firewall will allow access. (Note: If you have previously opened this port you may not need to repeat this step. If you have another assignment app that is still listening on that port, you must either stop that app, or open a different port number. If that app is not yet graded, change your app to use a different port, and open that new port.)
 
-- *DO#*`sudo ufw allow 8080`
+- *DO#*`sudo ufw allow 8080`        // using 8080 as the example port
 
 4. Navigate to your assignment directory:
 
@@ -75,7 +75,7 @@ Unless noted, these steps are executed in the application's root directory, whic
 * To start your app for initial testing:
     - *DO#*`node appserver`  // where appserver.js is the name of the server file. YOU MUST NOT CLOSE YOUR Cmdr TOOL in order to try accessing the server. Closing Cmdr will cause appserver to halt.
 
-* To start your app and have it remain running when you close your Cmdr tool. Do this when you have solved problems, and so your TA can access if for grading:
+* When you have solved problems, and so your TA can access if for grading, you need to start your app and have it remain running when you close your Cmdr tool:
     - *DO#*`nohup node appserver &`    // Now you and your grader can access the server at any time, without using Cmdr.
 
 * Visit your web server through a browser:
@@ -114,7 +114,7 @@ It is not much more complicated to set up this project, but some confusion can a
   - Your IP address for DO must be whitelisted. Do this in MongoDB Atlas, signed into your Admin account. Sometimes people had situations where their IP address varied, often from mobile environments. In those cases because they had non-sensitive data for course work, they used the 'Allow Access From Anywhere' button. (A change to the IP address is more often a problem during development on your local machine.)
   
 
-Follow the steps as outlined for other projects, but do not start your app server yet. Then:
+Follow the steps as outlined for other projects, but do not start your app server yet. Next:
 
 6. Create a .env file to use for your db credentials. In your Cmdr shell, use the editor Nano:
 
@@ -155,7 +155,7 @@ Based on issues raised in the Piazza forums, one of the most common problems is 
         This will show you if you are running any servers that use node. The first number listed for a process is the PID. ***If the process is yours and HAS ALREADY BEEN GRADED*** you can kill it:
         - *DO#*`kill XXXX`  // where XXXX is the PID (process id) number
 
-  - This command will tell you if a port is in use. If you find the port is busy, open and use a different port.
+  - The command to tell you if a port is in use is below. If you find the port is busy, open and use a different port.
     - *DO#*`sudo netstat -nlp | grep :8080`   // Shows if a process is running on port 8080. Substitute the port you want to use, and you can see if it is already busy.
     
   - If you must use a different port, open the port as described in "DEPLOYMENT STEPS" #3, above, and change the port in your code, too.
