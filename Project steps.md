@@ -74,7 +74,7 @@ From here, how you complete setting up and starting your project will vary depen
 * To start your app for initial testing:
     - *DO#*`node appserver`  // where appserver.js is the name of the server file. YOU MUST NOT CLOSE YOUR Cmdr TOOL in order to try accessing the server. Closing Cmdr will cause appserver to halt.
 
-* To start your app and have it remain running when you close your Cmdr tool:
+* To start your app and have it remain running when you close your Cmdr tool. Do this when you have solved problems, and so your TA can access if for grading:
     - *DO#*`nohup node appserver &`    // Now you and your grader can access the server at any time, without using Cmdr.
 
 * Visit your web server through a browser:
