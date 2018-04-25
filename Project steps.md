@@ -32,18 +32,18 @@ __Assumptions: the student already has:__
 - Have you updated your project Readme file?
 - Is your package.json file up to date?           // If package.json has not been discussed in lectures, skip this check - it may not apply.
 - Do you have a .gitignore file? Is it correct?   // To exclude files from your git repository. If not yet mentioned in lecture, skip this or double check docs or on Piazza
-- Have you checked in your files? Simple **Check In** steps are outlined in the next step.
+- Have you checked in your files? Simple **Check In** example steps are outlined in the next step.
 
 4. Check In your code to Github:  In Cmdr, in the **top level directory for your application,** the one created when you cloned the assignment:
 
 - Run git status to see changes since your last check in:
     - *local$*`git status`
 - If status looks correct, add files to your repo:
-    - *local$*`git add --all`  // adds all changes reported by git status. (You can add/remove files selectively if you prefer. See docs.)
+    - *local$*`git add --all`  // adds all changes reported by git status. (add/remove files selectively if you prefer. See docs.)
 - Commit the changes you added:             
-    - *local$*`git commit -m "Make a comment about the changes"` //(You can also do this for individual files if you prefer, See docs.)
+    - *local$*`git commit -m "Make a comment about the changes"` // (do this for individual files if you prefer, See docs.)
 - Send your sources to your github repository:    
-    - *local$*`git push origin master` // push the changes to github.
+    - *local$*`git push origin master` // push the changes to your github repo.
 
 5. Now you are ready to pull your project to your Digital Ocean droplet.
 
@@ -53,17 +53,17 @@ __Assumptions: the student already has:__
 
 * *local$*`ssh root@[IP]`
 
-2. Clone your assignment repository. Go to Github in a browser and select the repository. Use the 'Clone or Download' button and copy the SSH Setting. Paste it in at the command prompt on DO, usually at the root of your droplet, and press return to execute it. This will pull a copy of your project source code to Digital Ocean. Example:
+2. Clone your assignment repository. Go to Github in a browser and select the repository. Use the 'Clone or Download' button and copy the SSH Setting. Paste it in at the command prompt on DO, usually at the root of your droplet, as an argument to ***git clone***. This will pull a copy of your project source code to Digital Ocean. Example:
 
 * *DO#*`git clone git@github.com:HarvardDCENode/assignment-X-description-yourname.git`
 
-3. Open the port you use for the assignment so the server will allow access. (Note: If you have previously opened this port you may not need to repeat this step. If you have another assignment app that is still listening on that port, you must either stop that app, or open a different port number.)
+3. Open the port you use for the assignment so the server will allow access. (Note: If you have previously opened this port you may not need to repeat this step. If you have another assignment app that is still listening on that port, you must either stop that app, or open a different port number. If that app is not yet graded, change your app to use a different port, and open that new port.)
 
 - *DO#*`sudo ufw allow 8080`
 
 4. Navigate to your assignment directory:
 
--*DO#*`cd assignment-X-description-yourname`  // where assignment-X... is the name of your folder.
+- *DO#*`cd assignment-X-description-yourname`  // where assignment-X... is the name of your folder.
 
 ## Starting your Application:
 
@@ -84,13 +84,13 @@ From here, how you complete setting up and starting your project will vary depen
 
 Follow the Deployment steps through Step #4. Then:
 
-5. Install your NPM modules:
+5. Install your dependencies:
 
 * From the folder that is your project's root: (The assignment directory, such as 'assignment-X-description-yourname')
-- *DO#*`npm install`       // Uses the package.json file to install Node modules / NPM packages and their dependencies on your Digital Ocean droplet.
+  - *DO#*`npm install`       // Uses the package.json file to install Node modules / NPM packages and their dependencies on your Digital Ocean droplet.
 
 * Start your server in the same way as you did for your introductory Node server, and visit via a browser in the same way:
-- *DO#*`nohup node appserver &` // where appserver.js is the name of the server file.
+  - *DO#*`nohup node appserver &` // where appserver.js is the name of the server file.
 
 
 ### For a web app using Express and Package.json Scripts:
@@ -104,9 +104,9 @@ Follow the deployment steps as outlined above through Step #5, installing your N
 
 It is not much more complicated to set up this project, but some confusion can arise.
 
-  - You will usually not want to expose your database username and password publicly in your github repository, so take steps in the early part of the process to prevent that. Hint: `.gitignore`, `.env` file. 
+  - You will usually not want to expose your database username and password publicly in your github repository, so take steps in the early part of the process to prevent that. *Hint:* `.gitignore`, `.env` file. 
 
-  - Mongoose and dotenv are NPM modules, and are handled the same way you dealt with others. Hint: `npm install`. 
+  - Mongoose and dotenv are NPM modules, and are handled the same way you dealt with others. *Hint:* `npm install`. 
 
   - Your database is in the 'cloud'. It is not necessary to install any of the database client side software tools (Compass, the MongoDB shell) on Digital Ocean. Mongoose is going to handle the database interaction from DO, the same way that it does from your local development project. If you want to create a new database for 'production' purposes, you can set all of that up, and initialize it with data, from your local machine. You can modify your connection string to connect to the production database, but you can try that from localhost before you deploy the change.
 
@@ -125,22 +125,22 @@ DB_USER=username
 DB_PWD=password
 ```
 
-- Then, in Nano, enter Crtl-X and you will be prompted whether to Save. Click Y for yes. Then you will be prompted for the file name, which will default to .env because of your 'nano .env' entry, so press return.
+- Then, in Nano, enter Crtl-X and you will be prompted whether to Save. Click Y for yes. Then you will be prompted for the file name, which will default to .env because of your earlier *'nano .env'* command, so press return to accept the default file name.
 
 Start your server as before:
 - *DO#*`nohup node start &`
 
 ### For a Client side REST API test:
 
-There are a number of ways that this can be implemented, so it is not fully addressed here. Here is one option:
+There are a number of ways that this can be implemented, so deployment is not fully addressed here. Here is one option:
 
-  - Your client side REST API test still requires the web server app where the API resides to be running, so deploy that in the same way as described when using MongoDB.
   - The client HTML and JS files used for your tests can be placed under the app server's Public directory.
+  - Your client side REST API test still requires the web server app where the API resides to be running, so deploy that in the same way as described when using MongoDB.
   - Access the Client side tests via a browser with a path to the HTML test file by typing it into the Browser address, or adding a link in your Web server app's page. For example:
           Example URL:
               http://[DO IP]:[port]/TestAPI.HTML
               
-Some students opt for more separation from their server app. Some incorportated the REST API into their existing server app. Deployment steps may vary, but by this stage you've had practice.
+Some students opt for more separation from their server app. Some incorporate the REST API into their existing server app without using a separate test page. Deployment steps may vary, but by this stage you've had practice.
                     
 
 ## Trouble Shooting
@@ -159,7 +159,7 @@ Based on issues raised in the Piazza forums, one of the most common problems is 
     
   - If you must use a different port, open the port as described in "DEPLOYMENT STEPS" #3, above, and change the port in your code, too.
     
-Other problems include forgetting to install your dependencies, and when using MongoDB, forgetting to set up your .env file on DO and/or whitelist the DO IP. Make use of the debugging tools taught in the lectures and sections, and use Piazza as a helpful resource.
+Other problems include forgetting to install your dependencies, and when using MongoDB, forgetting to set up your .env file on DO, and/or whitelist the DO IP. Make use of the debugging tools taught in the lectures and sections, and use Piazza as a helpful resource.
 
 ## To Re-Deploy a Project:
 
