@@ -166,9 +166,9 @@ Other problems include forgetting to install your dependencies, and when using M
 
 - The main difference is that you do not clone your repository again. Simply pull the changes to your DO droplet:
 
-    - Check in your code changes as outline in the 'BEFORE DEPLOYING' section.
+    - Check in your code changes as outlined in the 'BEFORE DEPLOYING' section.
 
-    - ***ssh*** to Digital Ocean and stop your server if it is already listening. Use the **ps** command line tool as noted in the Trouble Shooting port conflict notes, and then **kill** the server process.
+    - ***ssh*** to Digital Ocean and stop your server if it is already listening. Use the **ps** command line tool as noted in the Trouble Shooting section notes about port conflicts, and then **kill** the server process.
     
     - Navigate to your project's directory to pull the changes from your repo.
 
@@ -177,5 +177,7 @@ Other problems include forgetting to install your dependencies, and when using M
     - If you have added or changed dependencies, install your dependencies as described in the deployment steps. 
     
     - Other steps would relate to the changes you have made. Review the steps for deployment and determine whether anything else is required. New port? Start script? DB password? It will depend on your specific changes. Often re-deploying is as simple as pulling changes from the repo and restarting your server.
+    
+    - When finished, start your server again, leaving it in a state that it can be accessed for grading if this is your final deployment for the project.
     
     
