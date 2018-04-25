@@ -109,7 +109,7 @@ It is not much more complicated to set up this project, but some confusion can a
 
   - Mongoose and dotenv are NPM modules, and are handled the same way you dealt with others. *Hint:* `npm install`. 
 
-  - Your database is in the 'cloud'. It is not necessary to install any of the database client side software tools (Compass, the MongoDB shell) on Digital Ocean. Mongoose is going to handle the database interaction from DO, the same way that it does from your local development project. If you want to create a new database for 'production' purposes, you can set all of that up, and initialize it with data, from your local machine. You can modify your connection string to connect to the production database, but you can try that from localhost before you deploy the change.
+  - Your database is in the 'cloud'. It is not necessary to install any of the database client side software tools (Compass, the MongoDB shell) on Digital Ocean. Mongoose is going to handle the database interaction from DO, the same way that it does from your local development project. If you want to create a new database for 'production' purposes, you can set all of that up, and initialize it with data, from your local machine. You can modify your connection string to connect to the production database, and you can test that from localhost before you deploy the change.
 
   - Your IP address for DO must be whitelisted. Do this in MongoDB Atlas, signed into your Admin account. Sometimes people had situations where their IP address varied, often from mobile environments. In those cases because they had non-sensitive data for course work, they used the 'Allow Access From Anywhere' button. (A change to the IP address is more often a problem during development on your local machine.)
   
@@ -152,26 +152,30 @@ Based on issues raised in the Piazza forums, one of the most common problems is 
 
   - You can use the following commands to see which processes are running on your droplet:
     - *DO#*`ps aux | grep node`   // shows a list of processes running with node. 
-        This will show you if you are running any servers that use node. The first number is the PID. ***If the process is yours and HAS ALREADY BEEN GRADED*** you can kill it:
-        - DO#*`kill XXXX`  // where XXXX is the PID (process id) number
+        This will show you if you are running any servers that use node. The first number listed for a process is the PID. ***If the process is yours and HAS ALREADY BEEN GRADED*** you can kill it:
+        - *DO#*`kill XXXX`  // where XXXX is the PID (process id) number
 
   - This command will tell you if a port is in use. If you find the port is busy, open and use a different port.
     - *DO#*`sudo netstat -nlp | grep :8080`   // Shows if a process is running on port 8080. Substitute the port you want to use, and you can see if it is already busy.
     
   - If you must use a different port, open the port as described in "DEPLOYMENT STEPS" #3, above, and change the port in your code, too.
     
-Other problems include forgetting to install your dependencies, and when using MongoDB, forgetting to set up your .env file on DO, and/or whitelist the DO IP. Make use of the debugging tools taught in the lectures and sections, and use Piazza as a helpful resource.
+Other problems include forgetting to install your dependencies, and when using MongoDB, forgetting to set up your .env file on DO, and/or whitelist the DO IP. Otherwise, make use of the debugging tools taught in the lectures and sections, and use Piazza as a helpful resource.
 
 ## To Re-Deploy a Project:
 
 - The main difference is that you do not clone your repository again. Simply pull the changes to your DO droplet:
 
-    - Stop your server if it is already listening. Use the **ps** command line tool as noted in the Trouble Shooting port conflict notes, and then **kill** the server process.
+    - Check in your code changes as outline in the 'BEFORE DEPLOYING' section.
+
+    - ***ssh*** to Digital Ocean and stop your server if it is already listening. Use the **ps** command line tool as noted in the Trouble Shooting port conflict notes, and then **kill** the server process.
+    
+    - Navigate to your project's directory to pull the changes from your repo.
 
     - *DO#*`git pull origin master`
     
     - If you have added or changed dependencies, install your dependencies as described in the deployment steps. 
     
-    - Other steps would relate to the changes you have made. Review the steps for deployment and determine whether anything else is required. New port? Start script? DB password? It will depend on your specific changes. Often it is as simple as pulling changes from the repo and restarting your server.
+    - Other steps would relate to the changes you have made. Review the steps for deployment and determine whether anything else is required. New port? Start script? DB password? It will depend on your specific changes. Often re-deploying is as simple as pulling changes from the repo and restarting your server.
     
     
